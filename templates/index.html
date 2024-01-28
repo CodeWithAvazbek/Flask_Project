@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>
+        Index
+    </title>
+{% endblock   %}
+{% block content %}
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor%}
+    <h1> Hello World </h1>
+    <p>
+        This is my First webpage!!!
+    </p>
+    <p>
+        My First name {{ first_name|lower }} <br>
+        My Last name {{ last_name|upper }}
+    </p>
+
+<p>
+    {{ favorite_pizza }} <br> <br>
+
+    {% for i in favorite_pizza %}
+        {% if i == 41 %}
+            {{ i+10 }}
+        {% else %}
+            {{ i }} <br>
+        {% endif %}
+    {% endfor %}
+</p>
+{% endblock %}
